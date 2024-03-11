@@ -1,10 +1,5 @@
 function Home() {
-  return <div>Page d'accueil 🏡
-
-
-
-    
-  </div>
+  return <div>Page d'accueil 🏡</div>;
 }
 
-export default Home 
+export default Home;
