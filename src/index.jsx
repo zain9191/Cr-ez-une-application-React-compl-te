@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home/";
-import Survey from "./pages/Survey";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Survey from "./pages/Survey/index";
 import Header from "./components/Header";
-// On ajoute nos composants
-import ClientForm from "./components/ClientForm/index";
-import FreelanceForm from "./components/FreelanceForm/index";
+import Error from "./components/Error";
+import Result from "./pages/Results/index";
+import FreeLance from "./pages/Freelances/index";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,11 +14,10 @@ ReactDOM.render(
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/survey" element={<Survey />}>
-          {/* Nous imbriquons nos composants dans survey */}
-          <Route path="client" element={<ClientForm />} />
-          <Route path="freelance" element={<FreelanceForm />} />
-        </Route>
+        <Route path="/result" element={<Result />} />
+        <Route path="/freelance" element={<FreeLance />} />
+        <Route path="/survey/:questionNumber" element={<Survey />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </Router>
   </React.StrictMode>,
