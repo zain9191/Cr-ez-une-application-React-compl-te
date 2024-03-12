@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Survey from "./pages/Survey";
+import Survey from "./pages/Survey/index";
 import Results from "./pages/Results";
 import Freelances from "./pages/Freelances";
 import Header from "./components/Header";
