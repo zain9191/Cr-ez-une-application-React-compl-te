@@ -39,13 +39,16 @@ const StyledTitle = styled.h2`
 const Illustration = styled.img`
   flex: 1;
 `;
-
+export function sum(a, b) {
+  return a + b;
+}
 function Home() {
   const { theme } = useTheme();
 
   return (
     <HomeWrapper>
       <HomerContainer theme={theme}>
+        {sum(54, 3)}
         <LeftCol>
           <StyledTitle theme={theme}>
             Repérez vos besoins, on s’occupe du reste, avec les meilleurs
