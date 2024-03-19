@@ -1,42 +1,32 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { StyledLink } from "../../utils/style/Atoms";
-import LightLogo from "../../assets/light-logo.png";
-import DarkLogo from "../../assets/dark-logo.png";
 import { useTheme } from "../../utils/hooks";
+import styled from "styled-components";
+import colors from "../../utils/style/colors";
 
-const HomeLogo = styled.img`
-  height: 40px;
-`;
-
-const NavContainer = styled.nav`
-  padding: 30px;
+const FooterContainer = styled.footer`
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  padding-top: 60px;
 `;
 
-function Header() {
-  const { theme } = useTheme();
+const NightModeButton = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: ${colors.secondary};
+`;
+
+function Footer() {
+  const { toggleTheme, theme } = useTheme();
 
   return (
-    <NavContainer>
-      <Link to="/">
-        <HomeLogo src={theme === "light" ? DarkLogo : LightLogo} />
-      </Link>
-      <div>
-        <StyledLink $theme={theme} to="/">
-          Accueil
-        </StyledLink>
-        <StyledLink $theme={theme} to="/freelances">
-          Profils
-        </StyledLink>
-        <StyledLink to="/survey/1" $isFullLink>
-          Faire le test
-        </StyledLink>
-      </div>
-    </NavContainer>
+    <FooterContainer>
+      <NightModeButton onClick={() => toggleTheme()}>
+        Changer de mode : {theme === "light" ? "☀️" : "🌙"}
+      </NightModeButton>
+    </FooterContainer>
   );
 }
 
-export default Header;
+export default Footer;
